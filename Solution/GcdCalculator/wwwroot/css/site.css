@@ -1,0 +1,88 @@
+html {
+  font-size: 14px;
+  font-family:'Times New Roman';
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-image: url('/Images/BackgroundImage.jpg');
+    background-size: 75% calc(100% - 60px);
+    background-position: right top;
+    background-repeat: no-repeat;
+}
+
+p {
+    margin: 0ch;
+}
+
+input:invalid, textarea:invalid, select:invalid {
+    box-shadow: 0 0 5px #d45252;
+    border-color: #b03535
+}
+
+input:valid, textarea:valid, select:valid {
+    box-shadow: 0 0 5px #abdae4;
+    border-color: #2c73bb;
+}
+
+.numbers-label {
+    width:120px;
+    text-align:center;
+    font-style: italic;
+}
+
+.numbers-label-none {
+    width: 120px;
+    text-align: center;
+    font-style: italic;
+    display:none;
+}
+
+.numbers {
+    width: 120px;
+    text-align: center;
+}
+
+.numbers-none {
+    width: 120px;
+    text-align: center;
+    display: none;
+}
+
+.btn {
+    text-decoration: none;
+    border: 1px solid rgb(48, 131, 205);
+    position: relative;
+    overflow: hidden;
+    width: 100px;
+}
+
+.btn:hover {
+    box-shadow: 1px 1px 25px 10px rgba(48, 131, 205, 0.4);
+}
+
+.btn:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient( 120deg, transparent, rgba(48, 131, 205, 0.4), transparent );
+    transition: all 650ms;
+}
+
+.btn:hover:before {
+    left: 100%;
+}

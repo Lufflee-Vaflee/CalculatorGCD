@@ -1,0 +1,72 @@
+﻿@model GcdCalculator.Models.ResultViewModel
+@{
+    ViewBag.Title = "GCD";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { name = "gcdCalculation", id = "gcdCalculation" }))
+{
+    <div style="margin-top:50px;">
+        <fieldset style="border: rgb(48, 131, 205) ridge thick; width: 800px; border-width:5px">
+            <legend style="background-color:rgb(48, 131, 205);"><font color="white">CALCULATING THE GREATEST COMMON DIVISOR</font></legend>
+            <div style="margin-top:5px">
+                <p><label for="countNumbers">Select the count of numbers:</label></p>
+                <input type="radio" id="countTwo" name="countNumbers" required checked value="2" />
+                <label for="countTwo">two&nbsp;</label>
+                <input type="radio" id="countThree" name="countNumbers" value="3"/>
+                <label for="countThree">three&nbsp;</label>
+                <input type="radio" id="countMany" name="countNumbers" value="4"/>
+                <label for="countMany">many</label>
+            </div>
+            <div style="margin-top:10px">
+                <p><label>Enter integers in the range from -2147483647 to 2147483647:</label></p>
+                <p>
+                    <label class="numbers-label" id="numbersOne" name="numbersOne" for="first">First</label>
+                    <label class="numbers-label" id="numbersTwo" name="numbersTwo" for="second">Second</label>
+                    <label class="numbers-label-none" id="numbersThree" name="numbersThree" for="third">Third</label>
+                </p>
+                <input class="numbers" type="number" id="first" name="first" min="-2147483647" max="2147483647" step="1" required value="@Model.First" />
+                <input class="numbers" type="number" id="second" name="second" min="-2147483647" max="2147483647" step="1" required value="@Model.Second" />
+                <input class="numbers-none" type="number" id="third" name="third" min="-2147483647" max="2147483647" step="1" value="@Model.Third" />
+            </div>
+            <div style="margin-top:5px;  display:none" id="numbersMany" name="numbersMany">
+                <p><label style="font-style: italic;" for="numbers">Enter from 1 to 2147483647 integers separated by spaces:</label></p>
+                <textarea id="numbersOther" name="numbersOther" style="width: 400px; height: 70px; overflow: scroll; resize: none;"  
+                placeholder="-1 -2 3 10 ..."  >@Model.NumbersOther</textarea>
+            </div>
+            <div style="margin-top:10px;">
+                <p><label for="algorithm">Choose an algorithm:</label></p>
+                <select style="width:100px" id="algorithm" name="algorithm" required>
+                    <option></option>
+                    <!option @(Model.Algorithm == "Euclidean" ? "selected='selected'" : "")>Euclidean</!option>
+                    <!option @(Model.Algorithm == "Stein" ? "selected='selected'" : "")>Stein</!option>
+                </select>
+            </div>
+            <div style="margin-top:10px">
+                <input type="checkbox" id="extended" name="extended" checked="@Model.Extended"/>
+                <label for="extended">&nbsp;Calculate the running time of the algorithm?</label>
+            </div>
+            <div style="margin-top:15px;">
+                <input type="submit" class="btn" id="submit" name="submit" value="Calculate" />
+            </div>
+            <br/>    
+            <fieldset style="border: rgb(48, 131, 205) ridge thick; border-width:1px">
+                <legend>RESULT</legend>
+                <div>
+                    <output id="error"><font color="#ff3333">@Model.Error</font></output>
+                </div>
+                <div style="margin-top:5px; border:dashed">
+                    <p><label for="result">Divisor:</label></p>
+                    <output id="result">&nbsp;@Model.Result</output>
+                </div>
+                <div style="margin-top:5px; border:dotted">
+                    <p><label for="calculationTime">Calculation time (milliseconds):</label></p>
+                    <output id="calculationTime">&nbsp;@Model.CalculationTime</output>
+                </div>
+            </fieldset>
+        </fieldset>
+    </div> 
+}
+
+<script src="~/js/GcdProcessing.js"></script>
+
