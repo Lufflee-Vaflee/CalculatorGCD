@@ -61,7 +61,7 @@
                           <li><a href="https://github.com/Lufflee-Vaflee/CalculatorGCD/blob/master/Documentation/Diagrams/UseCase/FlowOfEvents/Scenario%20execution%20of%20the%20GCD%20calculation%20program.pdf">Scenario execution of the GCD calculation program</a></li>
                         </ul>
                       </details>
-                    </li>
+                    </li>					
                   </ul>
                 </details>
               </li>
@@ -113,6 +113,14 @@
                   </ul>
                 </details>
               </li>
+			  <li>
+				<details>
+					<summary><a href="https://github.com/Lufflee-Vaflee/CalculatorGCD/tree/master/Documentation/Diagrams/_ArchitectureAsIs">Architecture As is</a></summary>
+					<ul>
+						<li><a href="https://github.com/Lufflee-Vaflee/CalculatorGCD/blob/master/Documentation/Diagrams/_ArchitectureAsIs/Class%20model.pdf">Class model</a></li>
+					</ul>
+				</details>
+			  </li>
             </ul>
           </details>
         </li>
